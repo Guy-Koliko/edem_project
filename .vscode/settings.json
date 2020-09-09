@@ -1,4 +1,20 @@
 {
   "python.pythonPath": "venv/bin/python",
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    
+    "editor.suggest.insertMode": "replace"
+  },
+  "[json]": {
+    "python.linting.pylintArgs":
+    ["--load-plugins=pylint_django","--errors-only"],
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  }
+  
 }
