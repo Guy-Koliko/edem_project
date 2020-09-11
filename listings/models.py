@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 from django.utils import timezone
 from realtors.models import Realtor
 
@@ -13,8 +12,6 @@ class Listing(models.Model):
   zipcode = models.CharField(max_length=20)
   description = models.TextField(blank=True)
   price = models.IntegerField()
-  bedrooms: models.IntegerField()
-  bathrooms: models.DecimalField(max_digits=2,decimal_places=1)
   garage = models.IntegerField(default=0)
   sqft = models.IntegerField()
   lot_size = models.DecimalField(max_digits=5,decimal_places=1)
@@ -26,7 +23,10 @@ class Listing(models.Model):
   photo_5 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   photo_6 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   is_publish = models.BooleanField(default=True)
-  list_date = models.DateField(default=timezone.now(),blank=True)
+  list_date = models.DateField(default=timezone.now,blank=True)
+  bedroom: models.IntegerField()
+  bathroom: models.IntegerField()
+  
  
   
   def __str__(self):
