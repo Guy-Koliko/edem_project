@@ -1,15 +1,19 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render
 
 from django.http import HttpResponse
 from listings.models import Listing
 from realtors.models import Realtor
+from listings.choices import bedroom_choices,price_choices,state_choices
 
 #this page is for the index
 
 def index(request):
   listing = Listing.objects.order_by('-list_date').filter(is_publish=True)[:3]
   context = {
-    'listings':listing
+    'listings':listing,
+    'state_choices':state_choices,
+    'price_choices':price_choices,
+    'bedroom_choices':bedroom_choices
   }
   return render(request,'pages/index.html',context)
 
@@ -24,11 +28,3 @@ def about(request):
     'is_mvp':is_mvp
   }
   return render(request,'pages/about.html',context)
-
-#this page is about listing
-def listing(request,listing_id):
-  listing = get_object_or_404(Listing,pk=listing_id)
-  context = {
-    'listing':listing
-  }
-  return render(request,'listings/listing.html',context)

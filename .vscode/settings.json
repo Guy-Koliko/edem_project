@@ -15,6 +15,7 @@
       "strings": true
     },
     "editor.suggest.insertMode": "replace"
-  }
+  },
+  "python.formatting.provider": "yapf"
   
 }

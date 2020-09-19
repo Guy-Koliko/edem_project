@@ -14,18 +14,19 @@ class Listing(models.Model):
   price = models.IntegerField()
   garage = models.IntegerField(default=0)
   sqft = models.IntegerField()
+  bedrooms_size = models.IntegerField(default=0)
+  bethrooms_size = models.IntegerField(default=0)
   lot_size = models.DecimalField(max_digits=5,decimal_places=1)
   photo_main = models.ImageField(upload_to='upload/%Y/%m/%d/')
   photo_1 = models.ImageField(upload_to="upload/%Y/%m/%d/",blank=True)
   photo_2 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
-  photo_2 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
+  photo_3 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   photo_4 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   photo_5 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   photo_6 = models.ImageField(upload_to='upload/%Y/%m/%d/',blank=True)
   is_publish = models.BooleanField(default=True)
   list_date = models.DateField(default=timezone.now,blank=True)
-  bedroom: models.IntegerField()
-  bathroom: models.IntegerField()
+ 
   
  
   
